@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
-import {  Layout} from 'antd';
-import HeaderCustom from "./components/Layout/HeaderCustom";
-import ContentCustom from "./components/Layout/ContentCustom";
-import NewMenuCustom from "./components/Layout/NewMenuCustom";
+import React from 'react';
+import {Layout} from 'antd';
+import MainHeader from "./components/MainHeader";
+import ContentPage from "./components/ContentPage";
+import {BrowserRouter} from "react-router-dom";
+import {observer} from "mobx-react";
 
-const {Footer } = Layout;
-
-
-
-const App: React.FC = () => {
+const App: React.FC = observer(() => {
     return (
-        <Layout style={{ minHeight: '100vh' }}>
-            <NewMenuCustom/>
-            <Layout className="site-layout">
-                <HeaderCustom/>
-                <ContentCustom/>
-
-                <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
+        <BrowserRouter>
+            <Layout>
+                <MainHeader/>
+                <ContentPage/>
             </Layout>
-        </Layout>
+        </BrowserRouter>
     );
-};
+});
 
 export default App;
